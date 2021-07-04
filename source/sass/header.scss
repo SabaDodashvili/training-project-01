@@ -1,0 +1,147 @@
+.header {
+	position: absolute;
+	top: 35px;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	&__row {
+	}
+
+	&__manu {
+	}
+
+	&__manu-body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 85px;
+		transition: 0.3s all ease 0s;
+		overflow: auto;
+	}
+
+	&__manu-list {
+		display: flex;
+		& li {
+			padding: 0 40px;
+			position: relative;
+			&::after {
+				content: "";
+				position: absolute;
+				right: 0;
+				top: 50%;
+				height: 3px;
+				width: 3px;
+				background-color: #4d4959;
+				border-radius: 50%;
+				margin-top: -1.5px;
+			}
+		}
+		& li:nth-child(2)::after,
+		& li:last-child::after {
+			display: none;
+		}
+		& li:nth-child(2) {
+			padding: 0 110px 0 40px;
+		}
+		& li:nth-child(3) {
+			padding: 0 40px 0 110px;
+		}
+	}
+
+	&__manu-link {
+		color: #4d4959;
+		font-family: "Lato";
+		font-size: 13px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 2.6px;
+		transition: 0.3s all ease 0s;
+	}
+	&__manu-link:hover {
+		color: #64c29e;
+	}
+	&__burger-manu {
+		display: none;
+	}
+	&__burger-manu:hover {
+		cursor: pointer;
+	}
+	&__logo {
+		position: absolute;
+		z-index: 5;
+		left: 50%;
+		top: 0;
+		margin-left: -47px;
+	}
+
+	@media (max-width: 767px) {
+		& {
+			top: 0;
+		}
+		&__logo {
+			top: 15px;
+		}
+		&__burger-manu {
+			display: block;
+			position: absolute;
+			top: 52px;
+			right: 20px;
+		}
+		&__burger-manu.open {
+			&::before {
+				background-color: #ffffff;
+				transform: rotate(45deg);
+				top: 9px;
+			}
+			&::after {
+				background-color: #ffffff;
+				transform: rotate(-45deg);
+				bottom: 9px;
+			}
+			& span {
+				transform: scale(0);
+				background-color: #ffffff;
+			}
+		}
+		&__manu-body {
+			position: fixed;
+			height: 100%;
+			width: 100%;
+			top: -100%;
+			left: 0;
+			background-color: #4d4959;
+			align-items: flex-start;
+		}
+		&__manu-body.open {
+			top: 0;
+		}
+		&__manu-list {
+			padding: 150px 0 0 0;
+			flex-direction: column;
+			text-align: center;
+			& li,
+			& li:nth-child(2),
+			& li:nth-child(3) {
+				padding: 0 0 35px 0;
+				&::after {
+					display: block;
+					position: absolute;
+					right: 50%;
+					top: 40px;
+					height: 4px;
+					width: 4px;
+					background-color: #fff;
+					border-radius: 50%;
+					margin-top: -2px;
+				}
+			}
+			& li:last-child {
+				padding: 0;
+			}
+		}
+		&__manu-link {
+			color: #fff;
+			font-size: 20px;
+		}
+	}
+}
